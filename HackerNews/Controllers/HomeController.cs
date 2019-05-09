@@ -14,20 +14,12 @@ namespace HackerNews.Controllers
         public IActionResult Index()
         {
             HackerNewsAPI api = new HackerNewsAPI();
-            IEnumerable<int> ids = api.GetTopTwentyIds();
+            List<int> ids = api.GetTopTwentyIds();
             List<News> Stories = new List<News>();
-            int i = 1;
-            foreach(int id in ids)
+
+            for(int i = 0; i < 20; i++)
             {
-                if(i <= 20)
-                {
-                    Stories.Add(api.GetStoryById(id));
-                    i++;
-                }
-                else
-                {
-                    break;
-                }
+                Stories.Add(api.GetStoryById(ids[i]));
             }
             return View(Stories);
         }

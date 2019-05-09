@@ -8,7 +8,7 @@ namespace HackerNewsLibrary
 {
     public class HackerNewsAPI
     {
-        public IEnumerable<int> GetTopTwentyIds()
+        public List<int> GetTopTwentyIds()
         {
             var client = new HttpClient();
             string url = "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
